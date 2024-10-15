@@ -880,7 +880,7 @@ st.markdown(
         color: #4F2170;
         font-weight: bold;
      }
-    button[data-testid="baseButton-secondary"] {
+    [data-testid="baseButton-secondary"] {
         background-color: #4F2170; !important
         color: white; !important
         border: 2px solid white; !important
@@ -889,7 +889,7 @@ st.markdown(
         font-size: 16px; !important
             
         }
-    button[data-testid="baseButton-secondary"]:hover {
+    [data-testid="baseButton-secondary"]:hover {
         background-color: #3b1a56; !important
         }
      
