@@ -880,17 +880,17 @@ st.markdown(
         color: #4F2170;
         font-weight: bold;
      }
-       button[data-testid="baseButton-secondary"] {
-            background-color: #4F2170; 
-            color: white; 
-            border: 2px solid white; 
-            border-radius: 18px;
-            padding: 10px 20px; 
-            font-size: 16px;
+    button[data-testid="baseButton-secondary"] {
+        background-color: #4F2170; 
+        color: white; 
+        border: 2px solid white; 
+        border-radius: 18px;
+        padding: 10px 20px; 
+        font-size: 16px;
             
         }
-        button[data-testid="baseButton-secondary"]:hover {
-            background-color: #3b1a56; 
+    button[data-testid="baseButton-secondary"]:hover {
+        background-color: #3b1a56; 
         }
      
     .horizontal-container {
