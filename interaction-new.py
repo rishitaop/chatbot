@@ -880,18 +880,18 @@ st.markdown(
         color: #4F2170;
         font-weight: bold;
      }
-    button[data-testid="baseButton-secondary"] {
+    button.stButton {
         background-color: #4F2170; 
         color: white; 
         border: 2px solid white; 
         border-radius: 18px;
         padding: 10px 20px; 
         font-size: 16px;
-            
-        }
-    button[data-testid="baseButton-secondary"]:hover {
+}
+
+    button.stButton:hover {
         background-color: #3b1a56; 
-        }
+    }
      
     .horizontal-container {
         display: flex;
@@ -1017,7 +1017,7 @@ if st.session_state.selected_phase:
     for process in processes:
         if st.button(f"{process}", key=f"process_{process}"):
             st.session_state.selected_process = process
-            # st.experimental_rerun()  # Rerun to show details for the selected process
+                    # st.experimental_rerun()  # Rerun to show details for the selected process
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Show details based on the selected process
