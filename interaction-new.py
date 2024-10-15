@@ -1017,7 +1017,7 @@ if st.session_state.selected_phase:
     for process in processes:
         if st.button(f"{process}", key=f"process_{process}"):
             st.session_state.selected_process = process
-            st.experimental_rerun()  # Rerun to show details for the selected process
+            # st.experimental_rerun()  # Rerun to show details for the selected process
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Show details based on the selected process
