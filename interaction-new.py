@@ -880,18 +880,18 @@ st.markdown(
         color: #4F2170;
         font-weight: bold;
      }
-    button.stButton {
-        background-color: #4F2170; 
-        color: white; 
-        border: 2px solid white; 
-        border-radius: 18px;
-        padding: 10px 20px; 
-        font-size: 16px;
-}
-
-    button.stButton:hover {
-        background-color: #3b1a56; 
-    }
+    button[data-testid="baseButton-secondary"] {
+        background-color: #4F2170; !important
+        color: white; !important
+        border: 2px solid white; !important
+        border-radius: 18px; !important
+        padding: 10px 20px; !important
+        font-size: 16px; !important
+            
+        }
+    button[data-testid="baseButton-secondary"]:hover {
+        background-color: #3b1a56; !important
+        }
      
     .horizontal-container {
         display: flex;
