@@ -945,7 +945,7 @@ st.sidebar.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
 
 if st.sidebar.button("🏠 Home", key="home_button"):
     st.session_state.clear()  # Clear all session state
-    st.experimental_rerun()  # Reload the page
+    # st.experimental_rerun()  # Reload the page
 st.sidebar.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
 
 # COE selection
