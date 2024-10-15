@@ -1004,7 +1004,7 @@ if st.session_state.project_day_clicked:
         emoji = phase_emojis.get(phase, '')
         if st.button(f"{emoji} {phase}", key=phase, use_container_width=True):
             st.session_state.selected_phase = phase
-            st.experimental_rerun()  # Rerun to show processes for the selected phase
+            # st.experimental_rerun()  # Rerun to show processes for the selected phase
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Process selection based on phase
