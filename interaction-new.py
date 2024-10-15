@@ -869,7 +869,7 @@ def get_all_matches(user_input, category_filter=None):
 st.markdown(
     """
     <style>
-    [data-testid="stSidebar"] {
+    [data-testid="stSidebar"] *{
         background-color: #4F2170;
     }
     [data-testid="stSidebar"] * {
