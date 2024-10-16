@@ -961,7 +961,6 @@ st.sidebar.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
 main_categories = df['Main'].unique().tolist()
 
 # Loop through each COE to create an expander for categories
-# Loop through each COE to create an expander for categories
 for main_category in main_categories:
     with st.sidebar.expander(main_category, expanded=False):  # Create an expander for each COE
         categories = df[df['Main'] == main_category]['Category'].unique().tolist()
@@ -969,21 +968,23 @@ for main_category in main_categories:
         # Add normal bullet points before each category
         bullet_categories = [f"• {cat}" for cat in categories]
 
+        # Change the default option and format it as bold or italic
+        default_option = "**CATEGORIES** *(click to select):*"  # Use markdown for bold text
+
         selected_category = st.radio(
-            "----------*CLICK ON A CATEGORY*----------", 
-            options=["Select a Category"] + bullet_categories, 
+            "",  # No label for the radio buttons
+            options=[default_option] + bullet_categories, 
             key=main_category
         )
         
         # Only proceed if no user input is provided and a category is selected
-        if not user_input and selected_category != "Select a Category":
+        if not user_input and selected_category != default_option:
             # Extract the actual category name from the selected option
             selected_category_name = selected_category[2:] if selected_category.startswith("• ") else selected_category
             
             links_results = get_links_by_category(selected_category_name)  # Use the category as input to get links
             st.session_state.messages.append({"role": "user", "content": selected_category_name})
             st.session_state.messages.append({"role": "assistant", "content": links_results})
-
 
 # Sidebar buttons for Home and FAQs
 st.sidebar.markdown('<div class="horizontal-container">', unsafe_allow_html=True)
