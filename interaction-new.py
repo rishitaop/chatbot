@@ -871,6 +871,7 @@ st.markdown(
     <style>
     [data-testid="stSidebar"] *{
         background-color: #4F2170;
+       
     }
     [data-testid="stSidebar"] * {
         color: white;
@@ -921,6 +922,14 @@ st.markdown(
         border-top: 2px solid white;
         margin: 2px 0;
     }
+    [data-testid="stSidebar"] .stRadio input[type="radio"] {
+        appearance: auto;  /* Reset to default browser appearance */
+        margin-right: 8px; /* Add some space between the circle and text */
+    }
+
+    [data-testid="stSidebar"] .stRadio label {
+        color: white;  /* Adjust text color if necessary */
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -952,17 +961,29 @@ st.sidebar.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
 main_categories = df['Main'].unique().tolist()
 
 # Loop through each COE to create an expander for categories
+# Loop through each COE to create an expander for categories
 for main_category in main_categories:
     with st.sidebar.expander(main_category, expanded=False):  # Create an expander for each COE
         categories = df[df['Main'] == main_category]['Category'].unique().tolist()
-        selected_category = st.radio(f"Select a Category for {main_category}", options=["Select a Category"] + list(categories), 
-                                        key=main_category)
+
+        # Add normal bullet points before each category
+        bullet_categories = [f"• {cat}" for cat in categories]
+
+        selected_category = st.radio(
+            "----------*CLICK ON A CATEGORY*----------", 
+            options=["Select a Category"] + bullet_categories, 
+            key=main_category
+        )
         
         # Only proceed if no user input is provided and a category is selected
         if not user_input and selected_category != "Select a Category":
-            links_results = get_links_by_category(selected_category)  # Use the category as input to get links
-            st.session_state.messages.append({"role": "user", "content": selected_category})
+            # Extract the actual category name from the selected option
+            selected_category_name = selected_category[2:] if selected_category.startswith("• ") else selected_category
+            
+            links_results = get_links_by_category(selected_category_name)  # Use the category as input to get links
+            st.session_state.messages.append({"role": "user", "content": selected_category_name})
             st.session_state.messages.append({"role": "assistant", "content": links_results})
+
 
 # Sidebar buttons for Home and FAQs
 st.sidebar.markdown('<div class="horizontal-container">', unsafe_allow_html=True)
