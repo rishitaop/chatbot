@@ -969,7 +969,7 @@ for main_category in main_categories:
         bullet_categories = [f"• {cat}" for cat in categories]
 
         # Change the default option and format it as bold or italic
-        default_option = "**CATEGORIES** *(click to select):*"  # Use markdown for bold text
+        default_option = "***Categories*** *(click to select):*"  # Use markdown for bold text
 
         selected_category = st.radio(
             "",  # No label for the radio buttons
